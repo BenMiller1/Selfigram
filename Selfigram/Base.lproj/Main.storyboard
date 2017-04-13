@@ -21,49 +21,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Uo-cAV">
+                                <rect key="frame" x="75" y="72" width="170" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="pbe-fb-WsF"/>
+                                    <constraint firstAttribute="width" constant="170" id="scW-HL-Qqy"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7M-7M-9Wz">
+                                <rect key="frame" x="75" y="250" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="Jlq-s7-Xjr" eventType="touchUpInside" id="EXs-3U-SN9"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGz-cA-s9o">
-                                <rect key="frame" x="120.5" y="323" width="79" height="20.5"/>
+                                <rect key="frame" x="121" y="309" width="79" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Uo-cAV">
-                                <rect key="frame" x="75" y="97" width="170" height="170"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="Fco-8B-C4w"/>
-                                    <constraint firstAttribute="width" constant="170" id="Op7-Tr-2q4"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7M-7M-9Wz">
-                                <rect key="frame" x="89" y="275" width="54" height="30"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="cameraButtonPressed:" destination="Jlq-s7-Xjr" eventType="touchUpInside" id="Lhc-pk-Ijy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pGz-cA-s9o" firstAttribute="top" secondItem="MpX-Uo-cAV" secondAttribute="bottom" constant="56" id="6ge-mX-qB2"/>
-                            <constraint firstItem="pGz-cA-s9o" firstAttribute="centerX" secondItem="vmh-3q-6nR" secondAttribute="centerX" id="C84-36-mOo"/>
-                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="top" secondItem="a0B-HS-mYt" secondAttribute="bottom" constant="33" id="H5c-oS-yYc"/>
-                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="centerX" secondItem="vmh-3q-6nR" secondAttribute="centerX" id="HvM-rl-Hf8"/>
-                            <constraint firstItem="pGz-cA-s9o" firstAttribute="centerY" secondItem="vmh-3q-6nR" secondAttribute="centerY" id="PPe-eu-ZyR"/>
-                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="leading" secondItem="D7M-7M-9Wz" secondAttribute="trailing" constant="-68" id="Uq5-Zk-JCq"/>
-                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="top" secondItem="a0B-HS-mYt" secondAttribute="bottom" constant="33" id="exZ-iG-GO9"/>
-                            <constraint firstItem="D7M-7M-9Wz" firstAttribute="top" secondItem="MpX-Uo-cAV" secondAttribute="bottom" constant="8" id="ruA-6t-11Q"/>
-                            <constraint firstItem="pGz-cA-s9o" firstAttribute="centerX" secondItem="vmh-3q-6nR" secondAttribute="centerX" id="tmn-Bt-YoB"/>
+                            <constraint firstItem="pGz-cA-s9o" firstAttribute="top" secondItem="MpX-Uo-cAV" secondAttribute="bottom" constant="67" id="a2T-sT-l3S"/>
+                            <constraint firstItem="D7M-7M-9Wz" firstAttribute="top" secondItem="MpX-Uo-cAV" secondAttribute="bottom" constant="8" id="b2r-No-q12"/>
+                            <constraint firstItem="pGz-cA-s9o" firstAttribute="centerX" secondItem="vmh-3q-6nR" secondAttribute="centerX" id="qbF-CJ-mr0"/>
+                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="leading" secondItem="D7M-7M-9Wz" secondAttribute="trailing" constant="-54" id="qxk-CN-4X0"/>
+                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="centerX" secondItem="vmh-3q-6nR" secondAttribute="centerX" id="xvN-6G-VoQ"/>
+                            <constraint firstItem="MpX-Uo-cAV" firstAttribute="top" secondItem="a0B-HS-mYt" secondAttribute="bottom" constant="8" id="z1g-xu-k6g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Yjv-0e-iNk"/>
                     <connections>
-                        <outlet property="profileImageView" destination="MpX-Uo-cAV" id="F8S-Fm-ndh"/>
-                        <outlet property="usernameLabel" destination="pGz-cA-s9o" id="jdO-ed-Lap"/>
+                        <outlet property="profileImageView" destination="MpX-Uo-cAV" id="R64-sF-qLH"/>
+                        <outlet property="usernameLabel" destination="pGz-cA-s9o" id="JV9-Nm-WAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UiA-OZ-4XW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="606.74662668665667"/>
+            <point key="canvasLocation" x="1395" y="606"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Jlt-Lh-ls1">
@@ -117,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4Q-af-oJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="-80.50974512743629"/>
+            <point key="canvasLocation" x="1395" y="-81"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="B6y-HP-Jat">
@@ -146,7 +143,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtS-Ud-6sS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="-755.17241379310349"/>
+            <point key="canvasLocation" x="1395" y="-756"/>
         </scene>
         <!--News Feed-->
         <scene sceneID="kkX-nG-wyx">
