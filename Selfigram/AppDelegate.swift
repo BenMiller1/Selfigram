@@ -6,6 +6,8 @@
 //  Copyright © 2017 lighthouselabs. All rights reserved.
 //
 
+
+import Parse
 import UIKit
 
 @UIApplicationMain
@@ -15,9 +17,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
+        
+        
+        
+      
+            let configuration = ParseClientConfiguration { clientConfiguration in
+                clientConfiguration.applicationId = "selfSelfies1"
+                clientConfiguration.server = "https://selfiegram-.herokuapp.com/parse"
+            }
+        
+            Post.registerSubclass()
+            Activity.registerSubclass()
+        
+        
+            Parse.initialize(with: configuration)
+        
+        let user = PFUser()
+        let username = "ben"
+        let password = "chapsonder"
+        user.username = username
+        user.password = password
+        user.signUpInBackground(block: { (success, error) -> Void in
+            if success {
+                print("successfully signed up a user")
+            }else {
+                PFUser.logInWithUsername(inBackground: username, password: password, block: { (user, error) -> Void in
+                    if let user = user {
+                        print("successfully logged in \(user)")
+                    }
+                })
+            }
+        })
+            
+            return true
+        }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

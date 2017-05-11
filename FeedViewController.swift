@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class FeedViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -22,22 +23,40 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let me = User(aUsername: "Ben", aProfileImage: UIImage(named: "Grumpy-Cat")!)
+        if let query = Post.query() {
+            query.order(byDescending: "createdAt")
+            query.includeKey("user")
+            
+            query.findObjectsInBackground(block: { (posts, error) -> Void in
+                
+                if let posts = posts as? [Post]{
+                    self.posts = posts
+                    self.tableView.reloadData()
+                }
+            })
+        }
         
-        let post0 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 0")
-        let post1 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 1")
-        let post2 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 2")
-        let post3 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 3")
-        let post4 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 4")
+                }
 
-        posts = [post0, post1, post2, post3, post4]
+    
+        
+    
+        //let me = User(aUsername: "Ben", aProfileImage: UIImage(named: "Grumpy-Cat")!)
+        
+        //let post0 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 0")
+        //let post1 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 1")
+        //let post2 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 2")
+        //let post3 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 3")
+        //let post4 = Post(image: UIImage(named: "Grumpy-Cat")!, user: me, comment: "Grumpy Cat 4")
+
+        //posts = [post0, post1, post2, post3, post4]
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,29 +70,25 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return self.posts.count
     }
 
     
    
         
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCellTableViewCell
-            
-            let post = self.posts[indexPath.row]
-            
-            cell.selfieImageView.image = post.image
-            
-            cell.usernameLabel.text = post.user.username
-            
-            cell.commentLabel.text = post.comment
-            
-            return cell
-        }
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCellTableViewCell
         
+        let post = self.posts[indexPath.row]
+        
+        cell.post = post
+        
+        return cell
+    }
+    
+    
+    
     @IBAction func cameraButtonPressed(_ sender: Any) {
         // 1: Create an ImagePickerController
         let pickerController = UIImagePickerController()
@@ -104,25 +119,34 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-       
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+
             
-           
-            let me = User(aUsername: "Benjay", aProfileImage: UIImage(named: "Grumpy-Cat")!)
-            let post = Post(image: image, user: me, comment: "My Lovely Selfie")
+        if let imageData = UIImageJPEGRepresentation(image, 0.9),
+            let imageFile = PFFile(data: imageData),
+            let user = PFUser.current(){
             
             
-            posts.insert(post, at: 0)
-            
+                let post = Post(image: imageFile, user: user, comment: "Me Lovely Selfie")
+                
+                post.saveInBackground(block: { (success, error) -> Void in
+                    if success {
+                        print("Post successfully saved in Parse")
+                        
+                     
+                        self.posts.insert(post, at: 0)
+                        
+                      
+                        let indexPath = IndexPath(row: 0, section: 0)
+                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+                    }
+                })
+            }
+          
         }
-        
-        
-        dismiss(animated: true, completion: nil)
-        
-        
-        tableView.reloadData()
-    }
-      
+          dismiss(animated: true, completion: nil)
+}
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -169,3 +193,4 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
     */
 
 }
+
