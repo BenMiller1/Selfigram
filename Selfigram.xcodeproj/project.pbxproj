@@ -17,6 +17,8 @@
 		0716B39C1EB1857800FDFA20 /* SelfieCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716B39B1EB1857800FDFA20 /* SelfieCellTableViewCell.swift */; };
 		079D14CA1E9C886300C7AF94 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D14C91E9C886300C7AF94 /* ProfileViewController.swift */; };
 		07A4D5921EAEE70000559E8B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D5911EAEE70000559E8B /* FeedViewController.swift */; };
+		07A50EC31ECA8FDD00CC6272 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A50EC21ECA8FDD00CC6272 /* ActivityCell.swift */; };
+		07A50EC51ECAA4D300CC6272 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A50EC41ECAA4D300CC6272 /* ActivityViewController.swift */; };
 		07CF98E11EC3F8740005A629 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF98E01EC3F8740005A629 /* Activity.swift */; };
 		07D4437C1EC150A500F5C01B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4437B1EC150A500F5C01B /* Food.swift */; };
 		07E55EB31EA8570900411091 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E55EB21EA8570900411091 /* User.swift */; };
@@ -60,10 +62,12 @@
 		0716B39B1EB1857800FDFA20 /* SelfieCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelfieCellTableViewCell.swift; path = ../SelfieCellTableViewCell.swift; sourceTree = "<group>"; };
 		079D14C91E9C886300C7AF94 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		07A4D5911EAEE70000559E8B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ../FeedViewController.swift; sourceTree = "<group>"; };
+		07A50EC21ECA8FDD00CC6272 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityCell.swift; path = ../ActivityCell.swift; sourceTree = "<group>"; };
+		07A50EC41ECAA4D300CC6272 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		07CF98E01EC3F8740005A629 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		07D4437B1EC150A500F5C01B /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
-		07E55EB21EA8570900411091 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		07E55EB41EA85C4600411091 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		07E55EB21EA8570900411091 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		07E55EB41EA85C4600411091 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../Post.swift; sourceTree = "<group>"; };
 		214E5E924E4FB56FFBE15845 /* Pods_SelfigramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfigramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F1F17861CC9E9E1A4C88AF /* Pods_SelfigramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfigramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30144A8FE982DA2760E72734 /* Pods-Selfigram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Selfigram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Selfigram/Pods-Selfigram.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,8 +110,6 @@
 		0714FE001E9C6D7A001C433F = {
 			isa = PBXGroup;
 			children = (
-				07E55EB21EA8570900411091 /* User.swift */,
-				07E55EB41EA85C4600411091 /* Post.swift */,
 				0714FE0B1E9C6D7A001C433F /* Selfigram */,
 				0714FE201E9C6D7A001C433F /* SelfigramTests */,
 				0714FE2B1E9C6D7A001C433F /* SelfigramUITests */,
@@ -130,6 +132,9 @@
 		0714FE0B1E9C6D7A001C433F /* Selfigram */ = {
 			isa = PBXGroup;
 			children = (
+				07A50EC21ECA8FDD00CC6272 /* ActivityCell.swift */,
+				07E55EB21EA8570900411091 /* User.swift */,
+				07E55EB41EA85C4600411091 /* Post.swift */,
 				0716B39B1EB1857800FDFA20 /* SelfieCellTableViewCell.swift */,
 				07A4D5911EAEE70000559E8B /* FeedViewController.swift */,
 				07D4437B1EC150A500F5C01B /* Food.swift */,
@@ -141,6 +146,7 @@
 				0714FE131E9C6D7A001C433F /* Assets.xcassets */,
 				0714FE151E9C6D7A001C433F /* LaunchScreen.storyboard */,
 				0714FE181E9C6D7A001C433F /* Info.plist */,
+				07A50EC41ECAA4D300CC6272 /* ActivityViewController.swift */,
 			);
 			path = Selfigram;
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 			files = (
 				0716B39C1EB1857800FDFA20 /* SelfieCellTableViewCell.swift in Sources */,
 				07E55EB31EA8570900411091 /* User.swift in Sources */,
+				07A50EC31ECA8FDD00CC6272 /* ActivityCell.swift in Sources */,
 				079D14CA1E9C886300C7AF94 /* ProfileViewController.swift in Sources */,
 				0714FE0F1E9C6D7A001C433F /* ViewController.swift in Sources */,
 				0714FE0D1E9C6D7A001C433F /* AppDelegate.swift in Sources */,
@@ -476,6 +483,7 @@
 				07CF98E11EC3F8740005A629 /* Activity.swift in Sources */,
 				07A4D5921EAEE70000559E8B /* FeedViewController.swift in Sources */,
 				07E55EB51EA85C4600411091 /* Post.swift in Sources */,
+				07A50EC51ECAA4D300CC6272 /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

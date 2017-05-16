@@ -88,21 +88,30 @@
             </objects>
             <point key="canvasLocation" x="-231" y="49"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Activity View Controller-->
         <scene sceneID="Lt8-DQ-BTt">
             <objects>
-                <tableViewController id="0lh-f9-QSS" sceneMemberID="viewController">
+                <tableViewController id="0lh-f9-QSS" customClass="ActivityViewController" customModule="Selfigram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9pf-O4-rEV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tGb-7F-q2Y">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" textLabel="Ma8-G4-vKL" style="IBUITableViewCellStyleDefault" id="tGb-7F-q2Y" customClass="ActivityCell" customModule="Selfigram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGb-7F-q2Y" id="ZKm-K4-Tfa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ma8-G4-vKL">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -125,8 +134,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="320" id="hfp-Vn-i4j" customClass="SelfieCellTableViewCell" customModule="Selfigram" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" rowHeight="320" id="hfp-Vn-i4j" customClass="SelfieCellTableViewCell" customModule="Selfigram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfp-Vn-i4j" id="dxb-xq-GSY">
@@ -163,6 +173,13 @@
                                                 <action selector="likeButtonClicked:" destination="hfp-Vn-i4j" eventType="touchUpInside" id="4ST-q4-1bD"/>
                                             </connections>
                                         </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearts-on" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-rc-8yW">
+                                            <rect key="frame" x="148.5" y="123" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="fDB-uy-W6N"/>
+                                                <constraint firstAttribute="width" constant="23" id="rRQ-Ii-3HR"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="jDL-qf-csh" secondAttribute="trailing" constant="9" id="2XB-yr-PHG"/>
@@ -170,14 +187,17 @@
                                         <constraint firstItem="frC-4c-LOz" firstAttribute="leading" secondItem="dxb-xq-GSY" secondAttribute="leadingMargin" id="Bnm-hX-zHU"/>
                                         <constraint firstItem="jDL-qf-csh" firstAttribute="top" secondItem="frC-4c-LOz" secondAttribute="bottom" constant="7" id="Dfu-5W-lEZ"/>
                                         <constraint firstItem="XzV-sg-Mpv" firstAttribute="leading" secondItem="dxb-xq-GSY" secondAttribute="leadingMargin" id="FRl-6v-quA"/>
+                                        <constraint firstItem="6rc-rc-8yW" firstAttribute="centerX" secondItem="frC-4c-LOz" secondAttribute="centerX" id="HZU-fS-3hh"/>
                                         <constraint firstItem="XzV-sg-Mpv" firstAttribute="top" secondItem="2uG-s8-1kR" secondAttribute="bottom" constant="3" id="IK8-jf-JtN"/>
                                         <constraint firstItem="frC-4c-LOz" firstAttribute="trailing" secondItem="dxb-xq-GSY" secondAttribute="trailingMargin" id="MuQ-2I-4gJ"/>
                                         <constraint firstItem="2uG-s8-1kR" firstAttribute="top" secondItem="frC-4c-LOz" secondAttribute="bottom" constant="8" id="djO-ng-Kxj"/>
                                         <constraint firstItem="frC-4c-LOz" firstAttribute="top" secondItem="dxb-xq-GSY" secondAttribute="topMargin" id="tCe-Og-7LX"/>
+                                        <constraint firstItem="6rc-rc-8yW" firstAttribute="centerY" secondItem="frC-4c-LOz" secondAttribute="centerY" id="vuO-Yt-Nik"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="XzV-sg-Mpv" id="zEo-4T-RTg"/>
+                                    <outlet property="heartAnimationView" destination="6rc-rc-8yW" id="vEW-IT-Rtg"/>
                                     <outlet property="likeButton" destination="jDL-qf-csh" id="p72-E3-GeM"/>
                                     <outlet property="selfieImageView" destination="frC-4c-LOz" id="8sx-ql-dvA"/>
                                     <outlet property="usernameLabel" destination="2uG-s8-1kR" id="bO7-gQ-tBi"/>
@@ -187,6 +207,7 @@
                         <connections>
                             <outlet property="dataSource" destination="dF6-xx-hbN" id="lOI-F2-ip7"/>
                             <outlet property="delegate" destination="dF6-xx-hbN" id="fnm-xu-c2L"/>
+                            <outletCollection property="gestureRecognizers" destination="f9b-k5-oyx" appends="YES" id="nAv-FC-9bF"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="yXs-ru-L7G">
@@ -197,8 +218,19 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="xj3-tj-icg">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshPulled:" destination="dF6-xx-hbN" eventType="valueChanged" id="CiX-qZ-HD7"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtS-Ud-6sS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="f9b-k5-oyx">
+                    <connections>
+                        <action selector="doubleTappedSelfie:" destination="dF6-xx-hbN" id="QBE-m4-fcx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1395" y="-756.25"/>
         </scene>

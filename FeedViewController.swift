@@ -20,26 +20,53 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
      var posts = [Post]()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    
+    
+    
+    
+    func getPosts() {
         if let query = Post.query() {
             query.order(byDescending: "createdAt")
             query.includeKey("user")
             
             query.findObjectsInBackground(block: { (posts, error) -> Void in
-                
+                self.refreshControl?.endRefreshing()
                 if let posts = posts as? [Post]{
                     self.posts = posts
                     self.tableView.reloadData()
                 }
+                
             })
         }
-        
-                }
-
+    }
     
+    @IBAction func doubleTappedSelfie(_ sender: UITapGestureRecognizer) {
         
+        let tapLocation = sender.location(in: tableView)
+        
+       
+        if let indexPathAtTapLocation = tableView.indexPathForRow(at: tapLocation){
+ 
+            let cell = tableView.cellForRow(at: indexPathAtTapLocation) as! SelfieCellTableViewCell
+     
+           cell.tapAnimation()
+        }
+    }
+    
+    
+    override func viewDidLoad() {
+        navigationItem.titleView = UIImageView(image: UIImage(named: "Selfigram-logo"))
+        super.viewDidLoad()
+        getPosts()
+        
+    }
+    
+    
+    @IBAction func refreshPulled(_ sender: UIRefreshControl) {
+        getPosts()
+    }
+    
     
         //let me = User(aUsername: "Ben", aProfileImage: UIImage(named: "Grumpy-Cat")!)
         

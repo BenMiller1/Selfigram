@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       
             let configuration = ParseClientConfiguration { clientConfiguration in
-                clientConfiguration.applicationId = "selfSelfies1"
-                clientConfiguration.server = "https://selfiegram-.herokuapp.com/parse"
+                clientConfiguration.applicationId = "5CDeHX2xNhW11QZXr9AvtBbEQY0lft4jpUuMFt9g"
+                clientConfiguration.server = " https://parse-server-ios-main.herokuapp.com/parse"
             }
         
             Post.registerSubclass()
